@@ -10,7 +10,11 @@ var password = "54321"
 app.use(express.json())
 app.use(cors())
 
-app.post('/',function(req,res){
+app.get('/', (req, res) => {
+  res.send("API is running fine ✅");
+});
+
+app.post('/login',function(req,res){
    // console.log(req)
    if(email===req.body.email && password===req.body.password)
    {
