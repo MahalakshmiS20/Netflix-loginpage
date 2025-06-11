@@ -7,16 +7,13 @@ const app = express()
 var email = "maha@gmail.com"
 var password = "54321"
 
-app.use(express.json())
+//app.use(express.json())
+app.use(urlencoded({extended:true}))
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.send("API is running fine ✅");
-});
-
-app.post('/login',function(req,res){
+app.get('/login',function(req,res){
    // console.log(req)
-   if(email===req.body.email && password===req.body.password)
+   if(email === req.query.email && password === req.query.password)
    {
      res.send(true)
    }
@@ -24,8 +21,7 @@ app.post('/login',function(req,res){
    {
     res.send(false)
    }
-    
-   
+
 })
 
 app.listen(8000,function(){
