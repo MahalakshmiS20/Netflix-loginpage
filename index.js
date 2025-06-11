@@ -8,7 +8,7 @@ var email = "maha@gmail.com"
 var password = "54321"
 
 //app.use(express.json())
-app.use(urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 app.get('/login',function(req,res){
